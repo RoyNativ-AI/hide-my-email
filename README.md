@@ -2,6 +2,10 @@
 
 Apple-like disposable email aliases for Gmail. Generate unlimited aliases that forward to your inbox.
 
+**Live Demo:** [app.maili2u.com](https://app.maili2u.com)
+
+![Landing Page](assets/landing.png)
+
 ## Features
 
 - **Unlimited Aliases** - Create disposable emails on the fly
