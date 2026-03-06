@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: email_alias
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./src/database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    restart: unless-stopped
+
+  api:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: postgresql://postgres:password@postgres:5432/email_alias
+      JWT_SECRET: your-jwt-secret-change-this
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_PORT: ${SMTP_PORT}
+      SMTP_USER: ${SMTP_USER}
+      SMTP_PASS: ${SMTP_PASS}
+      ALIAS_DOMAIN: ${ALIAS_DOMAIN}
+      FRONTEND_URL: http://localhost:3001
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+volumes:
+  postgres_data:

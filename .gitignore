@@ -1,0 +1,15 @@
+node_modules/
+dist/
+public/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+*.json.bak
+client_secret_*.json
+.claude/
+.wrangler/
+backups/
+frontend/node_modules/
+frontend/dist/

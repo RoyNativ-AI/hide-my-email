@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f0eee6;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center px-5 py-2.5 border text-sm font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply text-white bg-black hover:bg-gray-800 border-black focus:ring-black;
+  }
+
+  .btn-secondary {
+    @apply text-black bg-transparent hover:bg-black hover:text-white border-black focus:ring-black;
+  }
+
+  .btn-danger {
+    @apply text-white bg-black hover:bg-gray-800 border-black focus:ring-black;
+  }
+
+  .input {
+    @apply block w-full px-4 py-2.5 border border-black rounded-lg bg-transparent placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black focus:border-black sm:text-sm transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-white/60 backdrop-blur-sm border border-black rounded-xl p-6 transition-all duration-200;
+  }
+
+  .card-variant-1 {
+    @apply bg-[#e3dacc] border border-black rounded-xl p-6 transition-all duration-200;
+  }
+
+  .card-variant-2 {
+    @apply bg-[#bcd1ca] border border-black rounded-xl p-6 transition-all duration-200;
+  }
+
+  .card-variant-3 {
+    @apply bg-[#cbcadc] border border-black rounded-xl p-6 transition-all duration-200;
+  }
+
+  .mobile-safe-area {
+    @apply pb-safe-bottom;
+  }
+}
+
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .pb-safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}

@@ -1,0 +1,6 @@
+name = "aged-frog-ae9c"
+main = "cloudflare-email-worker.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+API_URL = "https://hide-my-email-bb709279deb1.herokuapp.com"
